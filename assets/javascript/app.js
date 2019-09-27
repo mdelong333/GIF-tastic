@@ -26,13 +26,36 @@ $(document).ready(function() {
                 
                 var rating = results[r].rating;
 
-                $("#gif-display").append(`<img src="${results[r].images.fixed_height_still.url}">
+                $("#gif-display").prepend(`<img src="${results[r].images.fixed_height_still.url}" data-state="still" class="gif" data-still="${results[r].images.fixed_height_still.url}" data-animate="${results[r].images.fixed_height.url}">
                 <p>Rating: ${rating}</p>`)
+
             };
 
             //console log query url and data response
             console.log(queryURL);
             console.log(response.data);
+
+            $(document).on("click", ".gif", function() {
+
+               console.log("click");
+                //gets state of gif and stores in variable
+               var state = $(this).attr("data-state");
+               
+               
+               if (state === "still") {
+
+                   $(this).attr("src", $(this).attr("data-animate"));
+                   $(this).attr("data-state", "animate");
+            
+                } else {
+
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                }
+                
+            });
+            
+
         });
 
     })
@@ -40,9 +63,10 @@ $(document).ready(function() {
     //loops through topics array and adds buttons to buttons div
     function makeButtons() {
         for (var t = 0; t < topics.length; t++) {
+
             $("#buttons").append(`<button class="topicButton" data-topic="${topics[t]}">${topics[t]}</button>
             `)    
-            
+        
         }
     };
 
