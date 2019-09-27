@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
     //topics array for buttons
-    var topics = ["creepy", "cross-stitch", "weird", "painting", "drawing", "piercings", "tattoos", "cats", "tarot", "spooky", "halloween"];
+    var topics = ["weird", "painting", "drawing", "piercings", "tattoos", "cats", "tarot", "spooky", "halloween"];
 
     //calls function to create a button for each topic
     makeButtons();
 
     //function runs when a button is clicked
-    $("button").on("click", function() {
+    $(".topicButton").on("click", function() {
 
         //variable to hold data for the button that was clicked
         var topic = $(this).attr("data-topic");
@@ -35,7 +35,7 @@ $(document).ready(function() {
             console.log(queryURL);
             console.log(response.data);
 
-            $(document).on("click", ".gif", function() {
+            $(".gif").on("click", function() {
 
                console.log("click");
                 //gets state of gif and stores in variable
