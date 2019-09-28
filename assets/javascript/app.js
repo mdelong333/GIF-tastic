@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     //topics array for buttons
-    var topics = ["weird", "trippy", "abstract", "chaos", "angry", "cats", "owls", "spooky", "halloween"];
+    var topics = ["cats", "owls", "chaos", "miyazaki", "spooky", "witchy", "space", "cuttlefish"];
 
     //calls function to create a button for each topic
     makeButtons();
@@ -44,8 +44,8 @@ $(document).ready(function() {
                //changes gif between static and animated
                if (state === "still") {
 
-                $(this).attr("data-state", "animate");
-                $(this).attr("src", $(this).attr("data-animate"));
+                 $(this).attr("data-state", "animate");
+                 $(this).attr("src", $(this).attr("data-animate"));
                    
                 } else {
                  $(this).attr("data-state", "still");
