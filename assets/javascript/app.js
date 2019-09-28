@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     //topics array for buttons
-    var topics = ["weird", "painting", "drawing", "piercings", "tattoos", "cats", "tarot", "spooky", "halloween"];
+    var topics = ["weird", "trippy", "abstract", "chaos", "angry", "cats", "owls", "spooky", "halloween"];
 
     //calls function to create a button for each topic
     makeButtons();
@@ -34,31 +34,29 @@ $(document).ready(function() {
             //console log query url and data response
             console.log(queryURL);
             console.log(response.data);
-
-            $(".gif").on("click", function() {
-
-               console.log("click");
+            
+            $(".gif").off().on("click", function() {
+                console.log("click");
+               
                 //gets state of gif and stores in variable
                var state = $(this).attr("data-state");
-               
-               
+            
+               //changes gif between static and animated
                if (state === "still") {
 
-                   $(this).attr("src", $(this).attr("data-animate"));
-                   $(this).attr("data-state", "animate");
-            
+                $(this).attr("data-state", "animate");
+                $(this).attr("src", $(this).attr("data-animate"));
+                   
                 } else {
-
-                    $(this).attr("src", $(this).attr("data-still"));
-                    $(this).attr("data-state", "still");
+                 $(this).attr("data-state", "still");
+                 $(this).attr("src", $(this).attr("data-still"));
                 }
                 
             });
             
-
         });
 
-    })
+    });
     
     //loops through topics array and adds buttons to buttons div
     function makeButtons() {
@@ -67,15 +65,12 @@ $(document).ready(function() {
             $("#buttons").append(`<button class="topicButton" data-topic="${topics[t]}">${topics[t]}</button>
             `)    
         
-        }
-    };
-
-    
-    
+        };
         
+    };
     
 })
 
-//when button is clicked add 10 static gifs from GIPHY API to screen
+
 //when gif is clicked start playing - when clicked again stop playing
-//under each gif display it's rating
+
