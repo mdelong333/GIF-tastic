@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     //topics array for buttons
-    var topics = ["cats", "owls", "chaos", "miyazaki", "spooky", "witchy", "space", "cuttlefish"];
+    var topics = ["cats", "laugh", "chaos", "miyazaki", "spooky", "owl", "yell", "cuttlefish"];
 
     //calls function to create a button for each topic
     makeButtons();
@@ -82,6 +82,8 @@ $(document).ready(function() {
         topics.push(topic);
         
         makeButtons();
+
+        $("#form-display").trigger('reset');
 
     })
 
