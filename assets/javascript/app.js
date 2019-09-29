@@ -7,7 +7,7 @@ $(document).ready(function() {
     makeButtons();
 
     //function runs when a button is clicked
-    $(".topicButton").on("click", function(event) {
+    $(document).on("click", ".topicButton", function(event) {
         
         //variable to hold data for the button that was clicked
         var topic = $(this).attr("data-topic");
