@@ -7,8 +7,8 @@ $(document).ready(function() {
     makeButtons();
 
     //function runs when a button is clicked
-    $(".topicButton").on("click", function() {
-
+    $(".topicButton").on("click", function(event) {
+        
         //variable to hold data for the button that was clicked
         var topic = $(this).attr("data-topic");
 
@@ -30,15 +30,16 @@ $(document).ready(function() {
                 <p>Rating: ${rating}</p>`)
 
             };
-
+            
             //console log query url and data response
             console.log(queryURL);
             console.log(response.data);
             
-            $(".gif").off().on("click", function() {
+            //click event for gif images
+            $(".gif").off().on("click", function(event) {
                 console.log("click");
                
-                //gets state of gif and stores in variable
+               //gets state of gif and stores in variable
                var state = $(this).attr("data-state");
             
                //changes gif between static and animated
@@ -60,17 +61,28 @@ $(document).ready(function() {
     
     //loops through topics array and adds buttons to buttons div
     function makeButtons() {
+
+        $("#buttons").empty();
+
         for (var t = 0; t < topics.length; t++) {
 
-            $("#buttons").append(`<button class="topicButton" data-topic="${topics[t]}">${topics[t]}</button>
-            `)    
+            $("#buttons").append(`<button class="topicButton" data-topic="${topics[t]}">${topics[t]}</button>`)    
         
         };
         
     };
-    
+
+    // function to add new topic button
+    $("#add-topic").on("click", function(event) {
+
+        event.preventDefault();
+
+        var topic = $("#topic-input").val().trim();
+
+        topics.push(topic);
+        
+        makeButtons();
+
+    })
+
 })
-
-
-//when gif is clicked start playing - when clicked again stop playing
-
