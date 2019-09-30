@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     //topics array for buttons
-    var topics = ["cats", "laugh", "chaos", "miyazaki", "spooky", "owl", "yell", "cuttlefish"];
+    var topics = ["cats", "horror", "bat", "fungi", "spooky", "owl", "halloween", "cuttlefish"];
 
     //calls function to create a button for each topic
     makeButtons();
