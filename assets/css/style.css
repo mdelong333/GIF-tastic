@@ -1,0 +1,128 @@
+* {
+    color: white;
+    box-sizing: border-box;
+}
+
+p {
+    font-family: 'Kalam', cursive;
+}
+
+#input-label {
+    font-family: 'Kalam', cursive;
+}
+
+#topic-input {
+    margin: 15px;
+}
+
+#faves {
+    font-family: 'Kalam', cursive;
+    font-size: 40px;
+    outline: 2px solid rgb(0,255,153);
+    border: 2px solid rgb(110,101,255);
+}
+
+body {
+    background-color: rgb(29, 29, 29)
+}
+
+#buttons {
+    margin: 20px 10px 30px 10px;
+}
+
+.topicButton {
+    background-image: linear-gradient(45deg, rgb(148, 179, 34) 0%, rgb(255, 171, 9) 50%, rgb(173, 22, 51) 100%);
+    margin: 2px;
+    color: rgb(255, 255, 255);
+    border: 2px solid;
+    font-family: 'Mansalva', cursive;
+    font-size: 14pt;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+}
+
+.topicButton:hover {
+    border: 2px solid rgb(255, 171, 9);
+    border-radius: 5px;
+}
+
+.topicButton:active {
+    opacity: .5;
+}
+
+img {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    max-width: 300px;
+}
+
+img:hover {
+    border: 2px solid;
+    cursor: pointer;
+    filter:drop-shadow(0 0 7px white);
+}
+
+img:active {
+    opacity: .5;
+}
+   
+#topic-input {
+    color: darkgrey;
+}
+
+#add-topic {
+    background-image: linear-gradient(45deg, rgb(148, 179, 34) 0%, rgb(255, 171, 9) 50%, rgb(173, 22, 51) 100%);
+    margin-left: 5px;
+    padding: 2px 20px 2px 20px;
+    font-family: 'Mansalva', cursive;
+    border: 2px solid;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+}
+
+#add-topic:hover {
+    border: 2px solid rgb(255, 171, 9);
+    border-radius: 5px;
+}
+
+#add-topic:active {
+    opacity: .5;
+}
+
+.checkbox {
+    background-image: linear-gradient(45deg, rgb(0,255,153) 0%, rgb(110,101,255) 50%, rgb(0,255,153) 100%);
+    border: 2px solid;
+    font-family: 'Mansalva', cursive;
+    border-radius: 5px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+}
+
+.checkbox:hover {
+    border: 2px solid;
+    filter:drop-shadow(0 0 5px white);
+}
+
+.checkbox:active {
+    opacity: .5;
+}
+
+#gif-display {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 2px solid rgb(255, 171, 9);
+}
+
+.main {
+    margin-left: 0;
+}
+
+.fig {
+    padding: 10px;
+    text-align: center;
+}
+
+#faves {
+    margin: 20px 10px 20px 10px;
+}
+
+#form-container {
+    margin: 20px 10px 20px 10px;
+}

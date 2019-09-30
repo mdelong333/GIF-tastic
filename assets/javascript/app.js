@@ -21,13 +21,17 @@ $(document).ready(function() {
 
             var results = response.data;
             
-            //loops through results of query associated with the button clicked displays static gif image and rating in gif-display div
+            //loops through results of query associated with the button-topic clicked displays static gif image and rating in gif-display div
             for (var r = 0; r < results.length; r++) {
                 
                 var rating = results[r].rating;
+                var title = results[r].title;
 
-                $("#gif-display").prepend(`<img src="${results[r].images.fixed_height_still.url}" data-state="still" class="gif" data-still="${results[r].images.fixed_height_still.url}" data-animate="${results[r].images.fixed_height.url}">
-                <p>Rating: ${rating}</p>`)
+                $("#gif-display").prepend(`<div class="container fig"> <img src="${results[r].images.fixed_height_still.url}" data-state="still" class="gif" data-still="${results[r].images.fixed_height_still.url}" data-animate="${results[r].images.fixed_height.url}">
+                <p>Rating: ${rating}</p>
+                <p>Title: ${title}</p>
+                <button class="checkbox">Add to favorites</button>
+                </div>`)
 
             };
             
@@ -79,12 +83,23 @@ $(document).ready(function() {
 
         var topic = $("#topic-input").val().trim();
 
-        topics.push(topic);
-        
-        makeButtons();
+        if ($("#topic-input").val().trim() === "") {
+            alert("You didn't add a topic!");
+        } else {
 
-        $("#form-display").trigger('reset');
+            topics.push(topic);
+            
+            makeButtons();
 
+            //form clears on submission
+            $("#form-display").trigger('reset');
+        }
     })
+
+
+    //figure out how to get 10 NEW gifs each time the topic is clicked
+    //click event for favorites button
+    //if added to favorites move to a favorites section
+    //MAKE IT LOOK NICE
 
 })
