@@ -2,6 +2,8 @@ $(document).ready(function() {
 
     //topics array for buttons
     var topics = ["cats", "horror", "bat", "fungi", "spooky", "owl", "halloween", "cuttlefish"];
+    
+    var offset = 0;
 
     //calls function to create a button for each topic
     makeButtons();
@@ -12,7 +14,10 @@ $(document).ready(function() {
         //variable to hold data for the button that was clicked
         var topic = $(this).attr("data-topic");
 
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cvRWJMp97Is61OrbMFOy1QvO6ypDnp7Y&q=" + topic + "&limit=10&lang=en";
+        //variable to randomize offset so that search params return different results each time topic button is clicked
+        offset = Math.floor(Math.random() * 1000);
+
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cvRWJMp97Is61OrbMFOy1QvO6ypDnp7Y&q=" + topic + "&offset=" + offset + "&limit=10&lang=en";
 
         $.ajax({
             url: queryURL,
@@ -83,6 +88,7 @@ $(document).ready(function() {
 
         var topic = $("#topic-input").val().trim();
 
+        //stops user from submitting new topic and gives an alert if input field is blank otherwise adds new topic to array
         if ($("#topic-input").val().trim() === "") {
             alert("You didn't add a topic!");
         } else {
