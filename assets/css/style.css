@@ -1,6 +1,7 @@
 * {
     color: white;
     box-sizing: border-box;
+    grid-template-columns: 12;
 }
 
 p {
@@ -20,6 +21,8 @@ p {
     font-size: 40px;
     outline: 2px solid rgb(0,255,153);
     border: 2px solid rgb(110,101,255);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 body {
@@ -105,8 +108,8 @@ img:active {
 }
 
 #gif-display {
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     border: 2px solid rgb(255, 171, 9);
 }
 
