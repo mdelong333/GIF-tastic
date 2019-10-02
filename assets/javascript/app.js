@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     //topics array for buttons
-    var topics = ["cats", "horror", "bat", "fungi", "spooky", "owl", "halloween", "cuttlefish"];
+    var topics = ["cats", "horror", "bat", "spooky", "owl", "halloween", "cuttlefish"];
     
     var offset = 0;
 
@@ -29,13 +29,19 @@ $(document).ready(function() {
             //loops through results of query associated with the button-topic clicked displays static gif image and rating in gif-display div
             for (var r = 0; r < results.length; r++) {
                 
-                var rating = results[r].rating;
-                var title = results[r].title;
+                gifResults = {
+                    gifCount: results[r].id,
+                    rating: results[r].rating,
+                    title: results[r].title,
+                    display: results[r].images.fixed_height_still.url,
+                    static: results[r].images.fixed_height_still.url,
+                    animate: results[r].images.fixed_height.url,
+                };
 
-                $("#gif-display").prepend(`<div class="container fig"> <img src="${results[r].images.fixed_height_still.url}" data-state="still" class="gif" data-still="${results[r].images.fixed_height_still.url}" data-animate="${results[r].images.fixed_height.url}">
-                <p>Rating: ${rating}</p>
-                <p>Title: ${title}</p>
-                <button class="checkbox">Add to favorites</button>
+                $("#gif-display").prepend(`<div class="container fig" id="number-${gifResults.gifCount}"> <img src="${gifResults.display}" data-state="still" class="gif" data-still="${gifResults.static}" data-animate="${gifResults.animate}">
+                <p>Rating: ${gifResults.rating}</p>
+                <p>Title: ${gifResults.title}</p>
+                <button class="faves" id="${gifResults.gifCount}">Add to favorites</button>
                 </div>`)
 
             };
@@ -43,6 +49,7 @@ $(document).ready(function() {
             //console log query url and data response
             console.log(queryURL);
             console.log(response.data);
+            
             
             //click event for gif images
             $(".gif").off().on("click", function(event) {
@@ -63,6 +70,13 @@ $(document).ready(function() {
                 }
                 
             });
+
+            $(".faves").on("click", function() {
+
+                $("#faves").append($("#number-" + gifResults.gifCount));
+
+                $("#" + gifResults.gifCount).hide();
+            })
             
         });
 
