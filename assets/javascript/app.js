@@ -29,7 +29,7 @@ $(document).ready(function() {
             //loops through results of query associated with the button-topic clicked displays static gif image and rating in gif-display div
             for (var r = 0; r < results.length; r++) {
                 
-                gifResults = {
+                var gifResults = {
                     gifCount: results[r].id,
                     rating: results[r].rating,
                     title: results[r].title,
@@ -43,6 +43,8 @@ $(document).ready(function() {
                 <p>Title: ${gifResults.title}</p>
                 <button class="faves" id="${gifResults.gifCount}">Add to favorites</button>
                 </div>`)
+
+                console.log(gifResults.gifCount);
 
             };
             
@@ -71,11 +73,15 @@ $(document).ready(function() {
                 
             });
 
-            $(".faves").on("click", function() {
+            //click event for favorites button
+            $(".faves").on("click", function(event) {
+                
+                //variable to store button's id
+                var buttonID = $(this).attr("id");
+            
+                $("#faves").append($("#number-" + buttonID));
 
-                $("#faves").append($("#number-" + gifResults.gifCount));
-
-                $("#" + gifResults.gifCount).hide();
+                $("#" + buttonID).hide();
             })
             
         });
