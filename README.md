@@ -17,3 +17,6 @@
 * Click a GIF to animate it, click again to pause
 
 * Click "add to favorites" button to move the gif to a section for your favorite GIFs! (Not fully functioning yet)
+
+## Deployed Page
+https://mdelong333.github.io/GIF-tastic/
